@@ -1,4 +1,4 @@
-# The Code(Java C or C++) In Introduction-To-Algorithms
+# The Code(Java) In Introduction-To-Algorithms
 
 
 ## Step to developing a usable algorithms
