@@ -1,7 +1,16 @@
 package chapter1;
 
 import java.util.Stack;
-
+/*==============================================================
+*
+*name:Dijkstra双栈算术表达式求值算法
+*
+*input:String arithmetic fault access
+*
+*output:result 
+*
+*===============================================================
+*/
 public class Evaluate {
 
 	public Double Dijkstra(String stdin) {
