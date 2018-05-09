@@ -9,17 +9,23 @@ import java.util.Stack;
 *
 *output:result 
 *
+*test:(1+((2+3)*(4*5)))
+*
+*test result:101.0
 *===============================================================
 */
+package chapter1;
+
+import java.util.Stack;
+
 public class Evaluate {
 
 	public Double Dijkstra(String stdin) {
 		int i = 0;
-		Stack<String> ops = new Stack<>();
-		Stack<Double> vals = new Stack<>();
+		Stack<String> ops = new Stack<String>();
+		Stack<Double> vals = new Stack<Double>();
 		while(i != stdin.length()) {
 			String s = String.valueOf(stdin.charAt(i));
-			System.out.print(s);
 			if     (s.equals("("))				   ;
 			else if(s.equals("+")) 		ops.push(s);
 			else if(s.equals("-")) 		ops.push(s);
@@ -29,12 +35,11 @@ public class Evaluate {
 			else if(s.equals(")")) {
 				String op = ops.pop();
 				double v = vals.pop();
-				//System.out.println(v);
-				if	   (s.equals("+")) 		v = vals.pop() + v;
-				else if(s.equals("-"))		v = vals.pop() - v;
-				else if(s.equals("*")) 		v = vals.pop() * v;
-				else if(s.equals("/")) 		v = vals.pop() / v;
-				else if(s.equals("sqrt")) 	v = Math.sqrt(v);
+				if	   (op.equals("+")) 		v = vals.pop() + v;
+				else if(op.equals("-"))			v = vals.pop() - v;
+				else if(op.equals("*")) 		v = vals.pop() * v;
+				else if(op.equals("/")) 		v = vals.pop() / v;
+				else if(op.equals("sqrt")) 	v = Math.sqrt(v);
 				vals.push(v);
 			}
 			else {
@@ -51,3 +56,4 @@ public class Evaluate {
 	}
 
 }
+
