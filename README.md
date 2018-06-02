@@ -1,4 +1,4 @@
-# The Code(Java) In Algorithms 4th
+﻿# The Code(Java) In Algorithms 4th
 
 Algorithms Fourth Edition Code
 
@@ -32,6 +32,8 @@ update time:2018-5-30 18:06:13
 #### 过程图
 
 ![选择排序](https://upload.wikimedia.org/wikipedia/commons/9/94/Selection-Sort-Animation.gif)
+
+#### 分步图
 ![选择排序](https://algs4.cs.princeton.edu/21elementary/images/selection.png)
 
 
@@ -48,5 +50,7 @@ update time:2018-5-30 18:06:13
 #### 过程图
 
 ![选择排序](https://upload.wikimedia.org/wikipedia/commons/4/42/Insertion_sort.gif)
+
+#### 分步图
 ![选择排序](https://algs4.cs.princeton.edu/21elementary/images/insertion.png)
 
