@@ -2,8 +2,9 @@
 
 Algorithms Fourth Edition Code and reding note
 
-update time:2018-6-6 17:08:17
+update time:2018-6-9 22:12:18
 
+pictures are from wiki and https://algs4.cs.princeton.edu/home/
 
 ## Step to developing a usable algorithms
 
@@ -82,3 +83,32 @@ update time:2018-6-6 17:08:17
 
 ---
 和选择排序以及插入排序形成对比的是，希尔排序也可以用于大型数组，它对任意排序（不一定是随机的）的数组表现也很好。实际上，对于一个特定的递增序列，构造一个希尔排序运行缓慢的数组并不容易。
+
+
+## Merge Top-Down
+
+[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/Merge.java)
+
+>归并排序（MERGE-SORT）是建立在归并操作上的一种有效的排序算法,该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为二路归并。
+
+
+要理解归并排序就要仔细研究该方法的调用的动态情况，例如要将a[0..15]排序，sort()方法会调用自己将a[0...7]排序，再在其中调用自己将a[0...3]和a[0...1]排序。在将a[0]、a[1]排序之后，终于才会开始将a[0]、a[1]归并，第二次归并是a[2]、a[3]，最后是a[0...1] a[2...3] 以此类推。学过数据结构的递归时我们肯定看过汉诺塔算法的递归过程，这两个地方很相似。
+这段代码也是我们分析归并排序的运行时间的基础。因为归并排序式算法设计中分治思想的典型应用。
+
+### 特点
+* 最坏情况时间复杂度 O(n log n) (typical)
+* 最好情况时间复杂度 O(n log n)
+* 平均情况时间复杂度 O(n log n)
+
+### 过程图
+![归并排序](https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif)
+
+![归并排序](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Merge_sort_animation2.gif/220px-Merge_sort_animation2.gif)
+
+
+### 分布图
+
+![归并排序](https://algs4.cs.princeton.edu/22mergesort/images/mergesortTD.png)
+
+
+

@@ -1,5 +1,6 @@
 package chapter2;
 
+import stdio.In;
 import stdio.StdOut;
 
 public class Merge {
@@ -58,7 +59,7 @@ public class Merge {
 	}
 	
 	public static void main(String[] args) {
-		String [] a = {"3", "7", "2", "3", "1", "5", "2", "1", "8", "5", "1", "2"};
+		String [] a = In.readStrings();
 		sort(a);
 		assert isSorted(a);
 		show(a);
