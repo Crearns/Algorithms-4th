@@ -2,7 +2,7 @@
 
 Algorithms Fourth Edition Code and reding note
 
-update time:2018-6-9 22:12:18
+update time:2018-6-10 17:16:04
 
 pictures are from wiki and https://algs4.cs.princeton.edu/home/
 
@@ -103,12 +103,39 @@ pictures are from wiki and https://algs4.cs.princeton.edu/home/
 ### 过程图
 ![归并排序](https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif)
 
-![归并排序](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Merge_sort_animation2.gif/220px-Merge_sort_animation2.gif)
-
 
 ### 分布图
 
 ![归并排序](https://algs4.cs.princeton.edu/22mergesort/images/mergesortTD.png)
 
 
+
+##  Merge Down-Top
+
+[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/MergeBU.java)
+
+> 实现归并排序的另一种方法是先归并那些微型数组，然后再成对归并得到的子数组，如此这般，知道我们将整个数组归并在一起。这种方法比标准的递归方法所需要的代码量更少。
+
+首先我们两两归并（把每个元素想象成一个大小为1的数组），然后四四归并（将两个大小为2的数组归并成一个有4个元素的数组），然后八八归并，一直下去。在每一轮归并中，最后一次归并的第二个子数组可能比第一个子数组要小（但这对merge()方法不是问题），如果不是的话所有的归并中两个数组大小都应该一样，而在下一轮中子数组的大小会翻倍。
+
+
+### 过程图
+
+![归并排序](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Merge_sort_animation2.gif/220px-Merge_sort_animation2.gif)
+
+
+### 分布图
+
+![归并排序](https://algs4.cs.princeton.edu/22mergesort/images/mergesortBU.png)
+
+
+## 注意点
+
+* 归并排序的空间复杂度不是最优的
+* 在实践中不一定会遇到最坏情况
+* 出了比较，算法的其他操作（例如访问数组）也可能很重要
+* 不进行比较也可能将某些数据排序
+
+以后还将继续学习其他一些排序算法
+---
 
