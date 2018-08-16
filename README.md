@@ -4,7 +4,7 @@
 
 Algorithms Fourth Edition Code AND reding note
 
-update time: **2018-8-5 22:49:45**
+update time: **2018-8-16 23:06:15**
 
 pictures are FROM wiki AND https://algs4.cs.princeton.edu/home/
 
@@ -16,6 +16,7 @@ pictures are FROM wiki AND https://algs4.cs.princeton.edu/home/
 * If not, figure out why.
 * Find a way to address the problem.
 * Iterate until satisfied.
+
 
 # Chapter2
 ##  Selection
@@ -329,3 +330,32 @@ public static void sort(Comparable[] a){
 符号表最主要的目的就是将一个键和一个值联系起来。
 它们不光能够高效地插入和查找，还可以进行其他几种方便的操作.
 
+## 二叉查找树
+
+二叉排序树或者是一棵空树，或者是具有下列性质的二叉树：
+
+* 若左子树不空，则左子树上所有结点的值均小于或等于它的根结点的值；
+
+* 若右子树不空，则右子树上所有结点的值均大于或等于它的根结点的值；
+  
+* 左、右子树也分别为二叉排序树；
+
+![二叉查找树](https://algs4.cs.princeton.edu/32bst/images/bst-anatomy.png)
+
+### 二叉查找树的数据表示
+
+和链表一样，我们嵌套定义一个私有类来表示二叉查找树上的一个节点**Node**。每个结点都含有一个键、一个值、一个左链接、一个右链接和一个节点计数器。左链接指向一棵小于该结点的所有键组成的二叉查找树，右链接指向一棵有由大于该结点的所有键组成的二叉查找树。变量N给出了以该结点为根的子树的结点总数。
+
+一棵二叉查找树代表了一组键(及其对应的值)的集合，而同一个集合可以用多棵不同的二叉查找树表示。如果我们将一棵二叉查找树的所有键投影到一条直线上，保证一个结点的左子树的键出现在他的左边，右子树的键出现在他的右边，那么我们一定可以得到一条有序的键列。我们会利用二超查找树的这种天生的灵活性，用多棵二叉查找树表示同一组的键来实现构建和使用二叉查找树的高效算法。
+
+### 查找过程
+
+一般来说，在符号表中查找一个键可能得到两种结果。如果含有该键的及诶单存在于表中，我们的查找就**命中**了，然后返回相应的值。否则查找**未命中**。根据数据表示的递归结构我们马上就能得到，在二叉树中查找一个键的递归算法：如果树是空的，则查找未命中；如果被查找的键和跟节点的键相等，查找命中，否则我们就（递归地）在适当的子树中继续查找。如果被查找的键较小就选择左子树，较大则选择右子树。
+
+
+![查找过程](https://algs4.cs.princeton.edu/32bst/images/bst-search.png)
+
+
+### 代码表示
+
+[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter3/BST.java)
