@@ -6,7 +6,7 @@ Algorithms Fourth Edition Code AND reding note
 
 update time: **2018-8-16 23:06:15**
 
-pictures are FROM wiki AND https://algs4.cs.princeton.edu/home/
+pictures are FROM **Wikipedia** AND [Teaching Website](https://algs4.cs.princeton.edu/home/)
 
 ## Step to developing a usable algorithms
 
@@ -359,3 +359,172 @@ public static void sort(Comparable[] a){
 ### 代码表示
 
 [Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter3/BST.java)
+
+
+### 有序性相关的方法
+
+#### 最大键和最小键 向上取整和向下取整
+```java
+public Key min(){
+	return min(root).key;
+}
+
+private Node min(Node x){
+	if (x.left == null) return x;
+	return min(x.left)
+}
+
+//max同理
+
+public Key floor(Key key){
+	Node x = floor(root, key);
+	if (x == null) return null;
+	return x.key;
+}
+
+private Node floor(Node x, Key key){
+	if (x == null) return null;
+	int cmp = key.compareTo(x.key)
+	if (cmp == 0) return x;
+	if (cmp < 0) return floor(x.left, key);
+	Node t = floor(x.right, key);
+	if (t != null) 	return t;
+	else		return x;
+}
+
+//ceiling同理
+
+```
+
+如果给定的键key小于二叉查找树的根节点的键，那么小于等于key的最大键floor(key)UI定在根节点的左子树;如果给定的键key大于二叉树的根节点，那么只有当根节点右子树存在小于等于key的结点时，小于等于key的最大键才会出现在右子树中，否则根节点就是小于等于key的最大键
+
+![floor](https://algs4.cs.princeton.edu/32bst/images/bst-floor.png)
+
+
+#### 排名
+##### select
+假设我们想找到排名为k的键(即树中正好有k个小于它的键)。如果左子树中的结点数t大于k，那么我们就继续(递归地)在左子树中查找排名为k的键；如果t等于k，我们就返回根节点的键；如果t小于k，我们就(递归地)在右子树中查找排名为(k-t-1)的键。
+##### rank
+rank是select的逆方法，它会返回给定键的排名。它的实现和select，可以通过代码理解。
+
+```java
+public Key select(int k){
+	return select(root, k).key;
+}
+
+private Node select(Node x, int k){
+	//返回排名为k的结点
+	if (x == null) return null;
+	int t = size(x.left);
+	if (t > k) return select(x.left, k);
+	else if (t < k) return select(x.right, k-t-1);
+	else return x;
+}
+
+public int rank(Key key){
+	return rank(key, root);
+}
+
+private int rank(Ket key, Node x){
+	//返回以x为根的子树中x.key的键的排位
+	if (x == null) retrun 0;
+	int cmp = key.compareTo(x.key);
+	if (cmp > 0) return rank(key, x.left);
+	else if (cmp > 0) return 1 + size(x.left) + rank(key, x.rigth);
+	else return size(x.left);
+}
+```
+
+![rank](https://algs4.cs.princeton.edu/32bst/images/bst-select.png)
+
+
+#### 删除
+
+二叉树中最难实现的方法就是delete()方法，即从符号表中删除一个键值对。为了简单，我们先实现deleteMin()方法，即删除最小键对应的键值对。我们要不断深入根节点的左子树直到遇见一个空连接，然后将指向该结点的链接指向该结点的右子树，如图所示
+
+---
+![deleteMin](https://algs4.cs.princeton.edu/32bst/images/bst-deletemin.png)
+---
+代码如下
+```java
+public void deleteMin(){
+	root = deleteMin(root);
+}
+
+private Node deleteMin(Node x){
+	if (x.left == null) return  x.right;
+	x.left = deleteMin(x.left);
+	x.N = size(x.left) + size(x.right) + 1;
+	return x;
+}
+```
+
+
+我们可以用类似的方式删除任意只有一个子结点(或没有子结点)的节点，至于任意结点，难点在于删除后的“善后”处理，即被删除结点的两个子树需要处理。_**T.Hibbard**_ 在1962年提出了解决这个难题的第一个方法，在删除结点x后用它的后继结点填补它的位置。因为x有一个右子结点，因此它的后继结点就是其右子树中的最小结点。这样替换仍然能够保证树的有序性，因为x.key和它的后继结点的键之间不存在其他的键。用4个简单的步骤完成将x替换为它的后继结点的任务
+
+1. 将指向即将被删除的结点链接保存为t;
+2. 将x指向它的后继结点min(t.right);
+3. 将x的右链接(原本指向一棵所有结点都大于x.key的二叉查找树)指向deleteMin(t.right)，也就是在删除后所有结点仍然都大于x.key的二叉查找树;
+4. 将x的左链接(本为空)设为t.left(其下所有的键都小于被删除的结点和它的后继结点)。
+
+---
+如图所示
+
+![delete](https://algs4.cs.princeton.edu/32bst/images/bst-delete.png)
+---
+代码如下
+```java
+public void delete(Key key){
+	root = delete(root, key);
+}
+
+private Node delete(Node x, Key key){
+	if (x == null) return null;
+	int cmp = key.compareTo(x.key);
+	if (cmp < 0) x.left = delete(x.left, key);
+	else if (cmp > 0) x.right = delete(x.right, key);
+	else{
+		if (x.right == null) return x.left;
+		if (x.left == null) return x.right;
+		Node t = x;
+		x = min(t.right);
+		x.right = deleteMin(t.right);
+		x.left = t.left;
+	}
+	x.N = size(x.left) + size(x.right) + 1;
+	return x;
+}
+```
+#### 范围查找
+要实现范围查找，我们需要了解遍历二叉树的基本方法之一——**中序遍历**，中序遍历通过递归方法很容易实现，也很好理解，这里省略。
+而二叉排序树的中序遍历就是把键的大小按从小到大的顺序遍历，根据这个原理可以实现范围查找。
+
+---
+代码如下
+
+```java
+public Iterable<Key> keys(){
+	return keys(min(), max());
+}
+
+public Iterable(Key) keys(Key lo, Key hi){
+	Queue<Key> queue = new Queue<Key>();
+	keys(root, queue, lo, hi);
+	return queue;
+}
+
+private void keys(Node x, Queue<Key> queue, Key lo, Key hi){
+	if (x == null) return;
+	int cmplo = lo.compareTo(x.key);
+	int cmphi = hi.compareTo(x.key);
+	if (cmplo < 0) keys(x.left, queue, lo, hi);
+	if (cmplo <= 0 && cmphi >= 0) queue.enqueue(x.key);
+	if (cmphi > 0) keys(x.right, queue, lo, hi);
+}
+```
+
+### 二叉查找树(BST)总结
+* 二叉查找树的定义： 若左子树不空，则左子树上所有结点的值均小于或等于它的根结点的值；若右子树不空，则右子树上所有结点的值均大于或等于它的根结点的值；左、右子树也分别为二叉排序树。
+* 二叉查找树的的每个结点Node都含有一个键、一个值、一个左链接、一个右链接和一个节点计数器。
+* 二叉查找树的查找过程：在二叉树中查找一个键的递归算法：如果树是空的，则查找未命中；如果被查找的键和跟节点的键相等，查找命中，否则我们就（递归地）在适当的子树中继续查找。如果被查找的键较小就选择左子树，较大则选择右子树。
+* 二叉查找树的有序性相关方法，较多的方法的原理都和**二分查找法**差不多，通过递归方法进行。其中删除任意结点较难。
