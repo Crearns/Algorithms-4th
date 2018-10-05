@@ -4,7 +4,7 @@
 
 Algorithms Fourth Edition Code AND reding note
 
-update time: **2018-09-06 21:21:08**
+update time: **2018-10-5 13:05:43**
 
 pictures are FROM **Wikipedia** AND [Teaching Website](https://algs4.cs.princeton.edu/home/)
 
@@ -620,7 +620,7 @@ private void keys(Node x, Queue<Key> queue, Key lo, Key hi){
 
 ![RST](https://algs4.cs.princeton.edu/33balanced/images/redblack-1-1.png)
 
-由此可以知道红黑树既是二叉查找树，又是2-3树，所以可以试着将两种结构的算法的有点结合起来
+由此可以知道红黑树既是二叉查找树，又是2-3树，所以可以试着将两种结构的算法的优点结合起来
 
 
 #### 代码表示
@@ -680,5 +680,106 @@ private void keys(Node x, Queue<Key> queue, Key lo, Key hi){
 
 在[向一棵双键树（即一个3-结点）中插入新键](#####向一棵双键树（即一个3-结点）中插入新键)中，颜色转换会使结点变为红色。这也可能出现在很大的红黑树中。红色的根节点说明根节点是一个3-结点的一部分，但实际情况并不是这样，因此在每次插入时都会将根节点设为黑色。
 
-#####　向树底部的3-结点插入新键
+##### 向树底部的3-结点插入新键
+![](https://i.loli.net/2018/09/28/5bade12bbcfc5.jpg)
+
+##### 将红链接在树中向上传递
+
+在红黑树中实现2-3树的插入算法的关键操作所需的步骤：
+* 创建一个临时的4-结点
+* 将其分解并将红链接由中间键传递给他的传递给它的父结点
+* 重复这个过程，直至遇到一个2-结点或者根结点
+
+总之，在沿着插入点到根结点的路径向上移动的时候在所经过的每个结点中顺序完成以下操作，便可以完成插入操作：
+* 如果右子结点是红色的而左子结点是黑色的，进行左旋转
+* 如果左子结点是红色的且它的左子结点也是红色的，进行右旋转
+* 如果左右子结点均为红色，进行颜色转换
+
+#### 实现
+
+```java
+ public void put(Key key, Value val) {
+        root = insert(root, key, val);
+        root.color = BLACK;
+        assert check();
+    }
+
+    private Node insert(Node h, Key key, Value val) { 
+        if (h == null) {
+            n++;
+            return new Node(key, val, RED);
+        }
+
+        int cmp = key.compareTo(h.key);
+        if      (cmp < 0) h.left  = insert(h.left,  key, val); 
+        else if (cmp > 0) h.right = insert(h.right, key, val); 
+        else              h.val   = val;
+
+        // fix-up any right-leaning links
+        if (isRed(h.right) && !isRed(h.left))      h = rotateLeft(h);
+        if (isRed(h.left)  &&  isRed(h.left.left)) h = rotateRight(h);
+        if (isRed(h.left)  &&  isRed(h.right))     flipColors(h);
+
+        return h;
+    }
+}
+```
+
+![](https://algs4.cs.princeton.edu/33balanced/images/redblack-construction.png)
+
+## 散列表
+
+使用散列的查找算法分为两步
+
+* 用散列函数将被查找的键转化为数组的一个索引
+* 处理碰撞冲突
+
+下图为哈希冲突
+
+
+![冲突](https://algs4.cs.princeton.edu/34hash/images/hashing-crux.png)
+
+### 散列函数
+
+#### 正整数
+
+将整数散列最常用的方法是除留余数法。
+
+对于任意正整数k，计算k除以M的余数(k % M)。其中，如果M不是素数，我们可能无法利用键中包含的所有信息，如下图所示
+
+![](https://algs4.cs.princeton.edu/34hash/images/modular-hashing.png)
+
+如果M使用100，则会将大量的键散列为小于20的索引，但如果使用素数97，散列的分布显然更好。
+
+#### 浮点数
+
+如果键是0到1之间的实数，我们可以将它乘以M并四舍五入得到一个0至M-1之间的索引值。但是这个方法的缺点是这种情况下键的高位起的作用更大，最低位对散列的结果没有影响。修正方法是将键表示为二进制后再使用除留取余法。
+
+#### 字符串
+
+```java
+int hash = 0;
+for (int i = 0; i < s.length(); i++)
+    hash = (R * hash + s.charAt(i)) % M;
+```
+
+字符串依然能够使用除留取余法：Java的charAt()函数能够返回一个char值，即一个非负16位整数。如果R比任何字符的值都大，这种计算相当于将字符串当做一个N位的R进制值，将它除以M取余。
+
+#### 组合键
+如果键的类型含有多个整型变量，我们可以和String类型一样将它们混合起来，例如类型为Date，其中含有几个整形的域：day，month，year。可以这样计算散列值
+```java
+int hash = (((day * R + month) % M) * R + year) % M 
+```使用除留取余法：Java的charAt()函数能够返回一个char值，即一个非负16位整数。如果R比任何字符的值都大，这种计算相当于将字符串当做一个N位的R进制值，将它除以M取余。
+
+#### 组合键
+如果键的类型含有多个整型变量，我们可以和String类型一样将它们混合起来，例如类型为Date，其中含有几个整形的域：day，month，year。可以这样计算散列值
+```java
+int hash = (((day * R + month) % M) * R + year) % M 
+```
+
+### 基于拉链法的散列表
+
+处理散列冲突，一种方法是将代销为M的数组中每个元素指向一条链表，链表中的每个结点都存储了散列值为钙元素的索引的键值对。这种方法为拉链法。
+
+[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter3/SeparateChainingHashST.java)
 
