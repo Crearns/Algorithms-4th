@@ -4,6 +4,13 @@
 ![by](https://img.shields.io/badge/Summarized%20By-Creams-blue.svg)
 
 
+<font size="5">欢迎阅读本仓库！</font><br /> 
+
+
+此仓库为阅读算法(第四版)过程中总结的读书笔记，笔记中内容是书中较为重要的部分的归纳总结，部分图片来自维基百科。
+欢迎star，也欢迎提出建议一起学习，本仓库内容只是比较针对我个人的总结，在学习过程中，阅读原著书籍是最好的选择。
+
+
 <IMG SRC="http://algs4.cs.princeton.edu/cover.png"  align=right hspace=25 width=100 alt = "Algorithms 4/e textbook">
 
 ## TODO：
