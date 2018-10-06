@@ -4,7 +4,7 @@
 
 Algorithms Fourth Edition Code AND reding note
 
-update time: **2018-10-5 13:05:43**
+update time: **2018-10-6 12:04:54**
 
 pictures are FROM **Wikipedia** AND [Teaching Website](https://algs4.cs.princeton.edu/home/)
 
@@ -769,13 +769,8 @@ for (int i = 0; i < s.length(); i++)
 如果键的类型含有多个整型变量，我们可以和String类型一样将它们混合起来，例如类型为Date，其中含有几个整形的域：day，month，year。可以这样计算散列值
 ```java
 int hash = (((day * R + month) % M) * R + year) % M 
-```使用除留取余法：Java的charAt()函数能够返回一个char值，即一个非负16位整数。如果R比任何字符的值都大，这种计算相当于将字符串当做一个N位的R进制值，将它除以M取余。
-
-#### 组合键
-如果键的类型含有多个整型变量，我们可以和String类型一样将它们混合起来，例如类型为Date，其中含有几个整形的域：day，month，year。可以这样计算散列值
-```java
-int hash = (((day * R + month) % M) * R + year) % M 
 ```
+使用除留取余法：Java的charAt()函数能够返回一个char值，即一个非负16位整数。如果R比任何字符的值都大，这种计算相当于将字符串当做一个N位的R进制值，将它除以M取余。
 
 ### 基于拉链法的散列表
 
@@ -783,3 +778,13 @@ int hash = (((day * R + month) % M) * R + year) % M
 
 [Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter3/SeparateChainingHashST.java)
 
+### 基于线性探测的散列表
+
+实现散列表的另一种方式就是用大小为M的数组保存N个键值对，其中N>M，所以需要依靠数组中的空位解决碰撞冲突。基于这种策略的所有方法被统称为开放地址散列表。
+
+开放地址散列表中最简单的方法叫做现行探测发：当碰撞发生时，我们直接检查散列表中的下一个位置(将索引值加一)。这样的线性探测可能产生三种结果：
+* 命中，该位置的键和被查找的键相同；
+* 未命中，键为空（该位置没有键） 
+* 继续查找，该位置的键和被查找的键不同。
+
+[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter3/LinearProbingHashST.java)
