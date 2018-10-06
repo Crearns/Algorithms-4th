@@ -35,11 +35,13 @@
 
 ## 重要排序算法
 
-|  | 传送门 |
-| :------: | :------: |
-| 选择排序 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#selection) |
-| 插入排序 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#insertion) |
-| 希尔排序 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#shell) |
-| 自顶向下归并排序 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#merge-top-down) |
-| 自底向上归并排序 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#merge-down-top) |
-| 快速排序 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#merge-down-top) |
+|  | 传送门 | 书中位置 |
+| :------: | :------: | :------: |
+| 选择排序 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#selection) |P155|
+| 插入排序 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#insertion) |P157|
+| 希尔排序 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#shell) |P163|
+| 自顶向下归并排序 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#merge-top-down) |P171|
+| 自底向上归并排序 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#merge-down-top) |P175|
+| 快速排序 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#quick) |P182|
+| 三向切分的快速排序 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#%E6%94%B9%E8%BF%9B%E7%AE%97%E6%B3%95) |P189|
+| 堆排序 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#%E5%A0%86%E6%8E%92%E5%BA%8F) |P206|
