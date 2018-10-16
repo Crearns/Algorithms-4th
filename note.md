@@ -4,7 +4,7 @@
 
 Algorithms Fourth Edition Code AND reding note
 
-update time: **2018-10-15 23:22:05**
+update time: **2018-10-16 22:53:14**
 
 pictures are FROM **Wikipedia** AND [Teaching Website](https://algs4.cs.princeton.edu/home/)
 
@@ -828,5 +828,32 @@ int hash = (((day * R + month) % M) * R + year) % M
 * 遍历顶点v的所有相邻顶点所需的时间和v的度数成正比。
 
 注： 边的插入顺序决定Graph邻接表中顶点的出现顺序，所以不同的邻接表可能表示同一幅图。
+
+代码实现
+
+[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/Graph.java)
+
+
+### 深度优先搜索
+
+#### 走迷宫
+
+Tremaux搜索
+
+[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/DepthFirstSearch.java)
+
+搜索连通图的景点递归算法和Tremaux搜索类似，单秒竖起来更简单；在访问其中一个顶点时：
+* 将它标记为已访问；
+* 递归地访问它的所有没有被标记过的邻居顶点。
+
+这种方法称为深度优先搜索（DFS）。
+
+#### 深度优先搜索算法跟踪
+
+详细见书P341
+
+![](https://i.loli.net/2018/10/16/5bc5fa599814e.jpg)
+
+注：深度优先搜索中每条边都会被访问两次，且在第二次时总会发现这个顶点已经被标记过。这意味着深度优先搜索的轨迹可能会比你想象的长一倍。
 
 
