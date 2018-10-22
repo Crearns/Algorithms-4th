@@ -12,7 +12,7 @@
 欢迎star，也欢迎提出建议一起学习，本仓库内容只是比较针对我个人的总结，在学习过程中，阅读原著书籍是最好的选择。<br>
 
 如何搭建开发环境？
-登录[教学主页](https://algs4.cs.princeton.edu/home/)下载相关jar包以及测试数据
+下载[相关jar包](https://github.com/Crearns/Algorithms-4th/blob/master/algs4.jar?raw=true)以及测试数据
 
 笔记全页在我的博客中：[Creams的博客](http://codingcms.cn)<br>
 目前算法第四版只是阅读第一遍，部分知识点可能掌握的不是很充分，在第二遍第三遍的时候会继续修正扩充此读书笔记

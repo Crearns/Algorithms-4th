@@ -4,7 +4,7 @@
 
 Algorithms Fourth Edition Code AND reding note
 
-update time: **2018-10-16 22:53:14**
+update time: **2018-10-22 22:43:25**
 
 pictures are FROM **Wikipedia** AND [Teaching Website](https://algs4.cs.princeton.edu/home/)
 
@@ -857,3 +857,26 @@ Tremaux搜索
 注：深度优先搜索中每条边都会被访问两次，且在第二次时总会发现这个顶点已经被标记过。这意味着深度优先搜索的轨迹可能会比你想象的长一倍。
 
 
+### 寻找路径
+
+![](https://algs4.cs.princeton.edu/41graph/images/paths-api.png)
+
+#### 实现
+[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/DepthFirstPaths.java)
+
+#### 详细轨迹
+
+![](https://i.loli.net/2018/10/22/5bcdd7fc1876b.jpg)
+
+
+### 广度优先搜索
+
+单点最短路径。给定一幅图和一个起点s，回答“从s到给定目的顶点v是否存在一条路径？如果有，找出其中最短的那条”
+
+解决这个问题的经典方法叫做广度优先搜索（BFS）。它也是许多图算法的基石。
+
+在广度优先搜索中，我们希望按照与起点的距离的顺序来遍历所有的顶点，看起来这种顺序很容易实现：使用队列来代替栈即可，我们将从有待搜索的通道中选择最早遇到的那条。
+
+#### 实现
+
+[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/BreadthFirstPaths.java)
