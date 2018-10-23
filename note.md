@@ -4,7 +4,7 @@
 
 Algorithms Fourth Edition Code AND reding note
 
-update time: **2018-10-22 22:43:25**
+update time: **2018-10-23 23:02:18**
 
 pictures are FROM **Wikipedia** AND [Teaching Website](https://algs4.cs.princeton.edu/home/)
 
@@ -880,3 +880,14 @@ Tremaux搜索
 #### 实现
 
 [Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/BreadthFirstPaths.java)
+
+### 连通分量
+
+深度优先搜索的另一个应用就是找出一幅图的所有连通分量。
+
+![](https://algs4.cs.princeton.edu/41graph/images/cc-api.png)
+
+#### 实现
+
+[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/CC.java)
+
