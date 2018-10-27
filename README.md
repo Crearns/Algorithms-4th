@@ -3,7 +3,9 @@
 ![madewith](https://img.shields.io/badge/Made%20With-Java-yellow.svg) ![book](https://img.shields.io/badge/BOOK-Algorithms%204th-red.svg)
 ![by](https://img.shields.io/badge/Summarized%20By-Creams-blue.svg)
 ![version](https://img.shields.io/badge/Version-1.0-blue.svg)
-
+<br>
+<a href="https://github.com/Crearns/Algorithms-4th"><img src="https://img.shields.io/github/stars/Crearns/Algorithms-4th.svg?style=social&label=Stars"></a>
+<a href="https://github.com/Crearns/Algorithms-4th"><img src="https://img.shields.io/github/forks/Crearns/Algorithms-4th.svg?style=social&label=Forks"></a>
 
 <font size="5">欢迎阅读本仓库！</font><br /> 
 
