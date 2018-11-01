@@ -4,7 +4,7 @@
 
 Algorithms Fourth Edition Code AND reding note
 
-update time: **2018-10-23 23:02:18**
+update time: **2018-11-1 23:11:05**
 
 pictures are FROM **Wikipedia** AND [Teaching Website](https://algs4.cs.princeton.edu/home/)
 
@@ -21,7 +21,7 @@ pictures are FROM **Wikipedia** AND [Teaching Website](https://algs4.cs.princeto
 # Chapter2
 ##  Selection
 
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/Selection.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/Selection.java)
 
 >首先找到数组中最小的那个元素，其次，将它和数组第一个元素交换位置(如果第一个元素就是最小元素那么他就自己和自己交换)。再次，再生喜爱的元素中找到最小的元素，将它与数组的第二个元素交换位置。如此往复，直到将整个数组排序。
 
@@ -46,7 +46,7 @@ pictures are FROM **Wikipedia** AND [Teaching Website](https://algs4.cs.princeto
 
 ## Insertion
 
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/Insertion.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/Insertion.java)
 
 
 >通常人们郑礼桥拍的方法是一张一张的来，将每一张牌插入到其他已经有序的牌中的适当位置。计算机的实现中，为了给要插入的元素腾出位置，需要将其余所有元素在插入之前都向右移动一位。
@@ -68,7 +68,7 @@ pictures are FROM **Wikipedia** AND [Teaching Website](https://algs4.cs.princeto
 
 ## Shell
 
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/Shell.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/Shell.java)
 
 >希尔排序的思想是使数组中任意间隔为h的元素都是有序的。这样的数组被称为h有序数组。换句话说，一个h有序数组就是h个互相独立的游戏数组编织在一起组成的一个数组。在进行排序是，如果h很大，我们能将元素移动到很远的地方，为实现更小的h有序创造方便。用这种方式，对于任意为1结尾的h序列，我们能够将数组排序，这就是希尔排序。
 
@@ -90,7 +90,7 @@ pictures are FROM **Wikipedia** AND [Teaching Website](https://algs4.cs.princeto
 
 ## Merge Top-Down
 
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/Merge.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/Merge.java)
 
 >归并排序（MERGE-SORT）是建立在归并操作上的一种有效的排序算法,该算法是采用分治法（Divide AND Conquer）的一个非常典型的应用。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为二路归并。
 
@@ -115,7 +115,7 @@ pictures are FROM **Wikipedia** AND [Teaching Website](https://algs4.cs.princeto
 
 ##  Merge Down-Top
 
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/MergeBU.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/MergeBU.java)
 
 > 实现归并排序的另一种方法是先归并那些微型数组，然后再成对归并得到的子数组，如此这般，知道我们将整个数组归并在一起。这种方法比标准的递归方法所需要的代码量更少。
 
@@ -145,7 +145,7 @@ pictures are FROM **Wikipedia** AND [Teaching Website](https://algs4.cs.princeto
 
 ## Quick
 
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/Quick.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/Quick.java)
 
 > 快速排序是一种分治的排序算法。它将一个数组分成两个子数组，将两部分独立地排序。
 > 通过"切分"将数组分成两半
@@ -210,7 +210,7 @@ pictures are FROM **Wikipedia** AND [Teaching Website](https://algs4.cs.princeto
 
  ### 改进算法
 
- [Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/Quick2.java)
+ [代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/Quick2.java)
 
  ```java
 public static void sort(Comparable[] a, int lo, int hi) {
@@ -259,7 +259,7 @@ public static void sort(Comparable[] a, int lo, int hi) {
 >二叉堆是一组能够用堆有序的完全二叉树排序的元素，并在数组中按照层级储存（不是用数组的第一个位置）
 
 #### 二叉堆对优先队列的实现
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/MaxPQ.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter2/MaxPQ.java)
 
 #### 堆的有序化的两种方法
 
@@ -358,7 +358,7 @@ public static void sort(Comparable[] a){
 
 ### 代码表示
 
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter3/BST.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter3/BST.java)
 
 
 ### 有序性相关的方法
@@ -625,7 +625,7 @@ private void keys(Node x, Queue<Key> queue, Key lo, Key hi){
 
 #### 代码表示
 
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter3/RBT.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter3/RBT.java)
 
 
 #### 相关操作
@@ -776,7 +776,7 @@ int hash = (((day * R + month) % M) * R + year) % M
 
 处理散列冲突，一种方法是将代销为M的数组中每个元素指向一条链表，链表中的每个结点都存储了散列值为钙元素的索引的键值对。这种方法为拉链法。
 
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter3/SeparateChainingHashST.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter3/SeparateChainingHashST.java)
 
 ### 基于线性探测的散列表
 
@@ -787,7 +787,7 @@ int hash = (((day * R + month) % M) * R + year) % M
 * 未命中，键为空（该位置没有键） 
 * 继续查找，该位置的键和被查找的键不同。
 
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter3/LinearProbingHashST.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter3/LinearProbingHashST.java)
 
 
 # chapter4
@@ -831,7 +831,7 @@ int hash = (((day * R + month) % M) * R + year) % M
 
 代码实现
 
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/Graph.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/Graph.java)
 
 
 ### 深度优先搜索
@@ -840,7 +840,7 @@ int hash = (((day * R + month) % M) * R + year) % M
 
 Tremaux搜索
 
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/DepthFirstSearch.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/DepthFirstSearch.java)
 
 搜索连通图的景点递归算法和Tremaux搜索类似，单秒竖起来更简单；在访问其中一个顶点时：
 * 将它标记为已访问；
@@ -862,7 +862,7 @@ Tremaux搜索
 ![](https://algs4.cs.princeton.edu/41graph/images/paths-api.png)
 
 #### 实现
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/DepthFirstPaths.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/DepthFirstPaths.java)
 
 #### 详细轨迹
 
@@ -879,7 +879,7 @@ Tremaux搜索
 
 #### 实现
 
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/BreadthFirstPaths.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/BreadthFirstPaths.java)
 
 ### 连通分量
 
@@ -889,5 +889,58 @@ Tremaux搜索
 
 #### 实现
 
-[Memo Code](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/CC.java)
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/CC.java)
 
+## 有向图
+
+![](https://algs4.cs.princeton.edu/42digraph/images/digraph-anatomy.png)
+
+### 有向图数据类型
+
+![](https://algs4.cs.princeton.edu/42digraph/images/digraph-api.png)
+
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/Digraph.java)
+
+有向图与无向图的数据类型基本相同，区别是addEdge()只调用了一次add()。
+
+### 有向图的可达性
+
+有向图的单点可达性
+
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/DirectedDFS.java)
+
+
+### 环和有向无环图
+
+#### 优先级调度问题
+
+**拓扑排序**：给定一幅有向图，将所有顶点排序，使得所有的有向边均从排在前面的元素指向排在后面的元素（或者说明无法做到这一点）
+
+
+#### 有向图中的环
+
+一般来说，如果一个优先级限制的问题中存在有向环，那么这个问题肯定是无解的。要检查这种错误，需要进行有向环检测。
+
+基于深度优先搜索来解决这个问题并不困难。一旦我们找到了一条有向边v -> w且w已经存在于栈中，就找到了一个环。
+
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/DirectedCycle.java)
+
+#### 定点的深度优先次序与拓扑排序
+
+注意：当且仅当一幅有向图是无环图时它才能进行拓扑排序。
+
+##### 有向图中基于深度优先搜索的顶点排序
+
+![](https://algs4.cs.princeton.edu/42digraph/images/dag.png)
+
+![](https://algs4.cs.princeton.edu/42digraph/images/depth-first-orders.png)
+
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/DepthFirstOrder.java)
+
+##### 拓扑排序
+
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/Topological.java)
+
+Topological类的实现使用了深度优先搜索来对所有有向无环图进行拓扑排序
+
+在实际应用中，拓扑排序和有向无环图的检测会一起出现，因为有向环的检测是排序的前提。

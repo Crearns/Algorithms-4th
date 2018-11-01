@@ -7,20 +7,29 @@
 <a href="https://github.com/Crearns/Algorithms-4th"><img src="https://img.shields.io/github/stars/Crearns/Algorithms-4th.svg?style=social&label=Stars"></a>
 <a href="https://github.com/Crearns/Algorithms-4th"><img src="https://img.shields.io/github/forks/Crearns/Algorithms-4th.svg?style=social&label=Forks"></a>
 
+
 <font size="5">欢迎阅读本仓库！</font><br /> 
 
 
 此仓库为阅读算法(第四版)过程中总结的读书笔记，笔记中内容是书中较为重要的部分的归纳总结，部分排序图片来自维基百科。<br>
 欢迎star，也欢迎提出建议一起学习，本仓库内容只是比较针对我个人的总结，在学习过程中，阅读原著书籍是最好的选择。<br>
 
-如何搭建开发环境？
-下载[相关jar包](https://github.com/Crearns/Algorithms-4th/blob/master/algs4.jar?raw=true)以及测试数据
+## 如何搭建开发环境？
 
-笔记全页在我的博客中：[Creams的博客](http://codingcms.cn)<br>
+* 新建一个Algorithms-4th的Java项目
+* 下载[相关jar包](https://github.com/Crearns/Algorithms-4th/blob/master/algs4.jar?raw=true)以及测试数据
+* 将下载的jar包导入至项目中
+
+## 笔记全页
+* 我的GitHub中：[GitHub笔记地址](https://github.com/Crearns/Algorithms-4th/blob/master/note.md)<br>
+* 我的博客中  ：[博客笔记地址](http://codingcms.cn)<br>
+
+
+## 当前进度
+
+![](http://progressed.io/bar/60)
+
 目前算法第四版只是阅读第一遍，部分知识点可能掌握的不是很充分，在第二遍第三遍的时候会继续修正扩充此读书笔记
-
-当前进度：60%->
-
 
 <IMG SRC="http://algs4.cs.princeton.edu/cover.png"  align=right hspace=25 width=100 alt = "Algorithms 4/e textbook">
 
@@ -39,7 +48,7 @@
 | √  | 第一章：基础 | 略 |
 | √  | 第二章：排序 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#chapter2) |
 | √  | 第三章：查找 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#chapter3-search) |
-| ×  | 第四章：图论 | To Be Continued |
+| ×  | 第四章：图论 | [传送门](https://github.com/Crearns/Algorithms-4th/blob/master/note.md#chapter4) |
 | ×  | 第五章：字符串 | To Be Continued |
 
 注：略并非不重要，相对的，第一章的知识是给后面的内容打下基础，第一章由于理论知识占多数，以及时间关系，则并没有总结笔记，第一章中的**二分查找**以及**下压栈**见第一章的代码文件夹。
