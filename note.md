@@ -4,7 +4,7 @@
 
 Algorithms Fourth Edition Code AND reding note
 
-update time: **2018-11-1 23:11:05**
+update time: **2018-11-4 17:30:47**
 
 pictures are FROM **Wikipedia** AND [Teaching Website](https://algs4.cs.princeton.edu/home/)
 
@@ -944,3 +944,20 @@ Tremaux搜索
 Topological类的实现使用了深度优先搜索来对所有有向无环图进行拓扑排序
 
 在实际应用中，拓扑排序和有向无环图的检测会一起出现，因为有向环的检测是排序的前提。
+
+### 有向图中的强连通性
+ 
+ **定义**：如果两个顶点v和w是互相可达的，则称它们为强连通的。也就是说，既存在一条从v到w的有向路径，也存在一条w到v的有向路径。如果一幅有向图中的任意两个顶点都是强连通的，则称这幅有向图也是强连通的。
+
+#### 强联通分量的API
+
+![](https://algs4.cs.princeton.edu/42digraph/images/scc-api.png)
+
+
+[代码实现](https://github.com/Crearns/Algorithms-4th-Demo/blob/master/chapter4/KosarajuSharirSCC.java)
+
+**Kosaraju**算法会完成以下任务：
+* 给定的一幅有向图G中，使用DepthFirstOrder来计算它的反向图G的逆后续排列
+* 在G中进行标准的深度优先搜索，但是要按照刚才计算得到的顺序而非标准的顺序来访问所有未被标记的顶点
+
+
